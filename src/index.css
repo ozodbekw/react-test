@@ -1,18 +1,59 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/rubik-v28-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/rubik-v28-latin-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/rubik-v28-latin-700.woff2") format("woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik";
+  font-size: 16px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+input,
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
 
 .container {
-  max-width: 1280px;
-  width: 100%;
+  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
-}
-
-html {
-  height: 100%;
-}
-body {
-  background-color: #fafaf5;
-  height: 100%;
 }
