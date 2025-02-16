@@ -8,7 +8,7 @@ function NotFound() {
   return (
     <div className="container notFound">
       <h1 className="notFound__title">No page found!</h1>
-      <Link className="notFound__btn" to="/home">
+      <Link className="notFound__btn" to="/">
         Go back
       </Link>
     </div>
