@@ -3,7 +3,7 @@
   font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/rubik-v28-latin-regular.woff2") format("woff2");
+  src: url("./fonts/rubik-v28-latin-regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-family: "Rubik";
   font-style: normal;
   font-weight: 500;
-  src: url("../fonts/rubik-v28-latin-500.woff2") format("woff2");
+  src: url("./fonts/rubik-v28-latin-500.woff2") format("woff2");
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   font-family: "Rubik";
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/rubik-v28-latin-700.woff2") format("woff2");
+  src: url("./fonts/rubik-v28-latin-700.woff2") format("woff2");
 }
 
 * {
@@ -56,4 +56,9 @@ button {
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
 }

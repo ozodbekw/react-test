@@ -1,0 +1,46 @@
+.mire__wrapper-left__card {
+  padding: 20px 17px;
+  display: flex;
+  gap: 15px;
+  background-color: #f6f6f6;
+  border-radius: 15px;
+}
+
+.mire__wrapper-left__card-img {
+  width: 210px;
+  height: 165px;
+}
+
+.mire__wrapper-left__card-text {
+  width: 535px;
+}
+
+.mire__wrapper-left__card-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.mire__wrapper-left__card-describtion {
+  margin-bottom: 17px;
+  color: #4a4b4c;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.mire__wrapper-left__card-caption {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.mire__wrapper-left__card-caption__img {
+  width: 20px;
+  height: 20px;
+}
+
+.mire__wrapper-left__card-caption__title {
+  color: #5e5f61;
+  font-size: 12px;
+}

@@ -1,0 +1,38 @@
+.seconadryCard {
+  padding: 20px 17px;
+  border-radius: 15px;
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.seconadryCard-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28.44px;
+  letter-spacing: 0%;
+}
+
+.seconadryCard-card {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.seconadryCard-card:last-child {
+  border-bottom: 0;
+}
+
+.seconadryCard-card__title {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.seconadryCard-card__describtion {
+  color: #5e5f61;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15.41px;
+}

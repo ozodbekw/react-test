@@ -1,6 +1,85 @@
+import { useState } from "react";
 import "./css/home.css";
+import Card from "../components/Card";
+import SecondaryCard from "../components/SecondaryCard";
 
 function Home() {
+  const [modal, setModal] = useState(false);
+  const openModal = (type) => {
+    if (type) {
+      setModal((prev) => (prev = true));
+    } else {
+      setModal((prev) => (prev = false));
+    }
+  };
+
+  const mireCard = [
+    {
+      id: 1,
+      cardImage: "./home-img/china-plane.png",
+      title:
+        "Китайский Чунцин запустил чартерный рейс для студентов до Британии",
+      describtion:
+        "Чартерный рейс с 244 китайскими студентами вылетел из города центрального подчинения Чунцина на юго-западе Китая в британский Манчестер...",
+      captionImage: "./home-img/china-plane-caption.png",
+      caption: "ИА Красная Весна 12:25",
+    },
+    {
+      id: 2,
+      cardImage: "./home-img/germany-pre.png",
+      title:
+        "В Германии выпустят ограниченную партию плюшевых мишек в образе Меркель",
+      describtion:
+        "БЕРЛИН, 19 сентября. / ТАСС/. Знаменитая фабрика по производству плюшевых игрушек в городе Кобург (федеральная земля Бавария) изготовила уникального...",
+      captionImage: "./home-img/germany-pre-caption.png",
+      caption: "ТАСС 11:35",
+    },
+    {
+      id: 3,
+      cardImage: "./home-img/aktsiya.png",
+      title:
+        "Акции КНР утратили доверие инвесторов. Что делать с бумагами прямо сейчас",
+      describtion:
+        "За последние месяцы инвесторы в китайский рынок пережили настоящее потрясение — из-за ужесточения регулирования технологического сектора и критики некоторых...",
+      captionImage: "./home-img/aktsiya-caption.png",
+      caption: "РБК Инвестиции 09:35",
+    },
+    {
+      id: 4,
+      cardImage: "./home-img/china-flag.png",
+      title:
+        "Китай раскритиковал заключенный Австралией, США и Великобританией антикитайский союз AUKUS",
+      describtion:
+        "Не только Франция, которая лишилась многомиллиардного контракта с Австралий, осталась недовольна созданием трехстороннего оборонного альянса AUKUS, пишет Anna-News.info",
+      captionImage: "./home-img/china-flag-caption.png",
+      caption: "Solenka.info 19:43",
+    },
+  ];
+
+  const secondaryData = [
+    {
+      id: 1,
+      title: "В Фергане создадут узбекско-пакистанский университет",
+      describtion: "Sputnik Узбекистан 14:09",
+    },
+    {
+      id: 2,
+      title:
+        "Узбекистан утвердил соглашение о содействии занятости в странах СНГ",
+      describtion: "ИА Красная Весна 10:19",
+    },
+    {
+      id: 3,
+      title: "В Узбекистане увеличиваются очереди за автомобилями UzAuto",
+      describtion: "Северная газета (Армянск) 13:50",
+    },
+    {
+      id: 4,
+      title: "Минтуризма опровергло приостановку выплат за шаги",
+      describtion: "Sputnik Узбекистан 14:32",
+    },
+  ];
+
   return (
     <>
       <section className="home_hero container">
@@ -151,12 +230,51 @@ function Home() {
           <h3 className="home_hero__modal-open-title">
             Хотите быть в курсе свежих новостей? Включите уведомления!
           </h3>
-          <button className="home_hero__modal-open--btn">Включит </button>
+          <button
+            onClick={() => openModal(true)}
+            className="home_hero__modal-open--btn"
+          >
+            Включит
+          </button>
         </div>
+        {modal && (
+          <div className="modal">
+            <div className="innerDiv">
+              <button
+                onClick={() => openModal(false)}
+                className="modal__close-btn"
+              >
+                <img src="./home-img/close-modal.svg" alt="" />
+              </button>
+              <h2 className="modal__title">
+                Хотите быть в курсе свежих новостей? Включите уведомления!
+              </h2>
+              <button
+                onClick={() => openModal(false)}
+                className="home_hero__modal-open--btn"
+              >
+                Включит
+              </button>
+            </div>
+          </div>
+        )}
       </section>
+
       {/* Mire section */}
       <section className="mire container">
         <h2 className="mire__title">В мире</h2>
+        <div className="mire__wrapper">
+          <div className="mire__wrapper-left">
+            {mireCard.map((item) => (
+              <Card key={item.id} {...item} />
+            ))}
+            <button className="mire__wrapper-reloader">Показать ещё </button>
+          </div>
+          <div className="mire__wrapper-right">
+            <SecondaryCard data={secondaryData} />
+            <img className="mire__wrapper-right__img" src="./home-img/ads.png" alt="" />
+          </div>
+        </div>
       </section>
     </>
   );
