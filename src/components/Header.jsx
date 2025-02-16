@@ -9,7 +9,7 @@ function Header() {
     <header className="header">
       <div className="header__top">
         <div className="header__top-container container">
-          <Link to="/home">
+          <Link to="/">
             <img src="./NAMANGANLIKLAR 24.svg" alt="NAMANGANLIKLAR logo" />
           </Link>
           <p className="header__top-currency">

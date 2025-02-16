@@ -9,7 +9,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer__container container">
         <div className="footer-top">
-          <Link to="/home">
+          <Link to="/">
             <img
               className="footer-top__logo"
               src="./NAMANGANLIKLAR 24.svg"
