@@ -21,7 +21,7 @@ function App() {
         { path: "/interesting", element: <Interesting /> },
         { path: "/article", element: <Article /> },
         { path: "/contact", element: <Contact /> },
-        { path: "/*", element: <NotFound /> },
+        { path: "*", element: <NotFound /> },
       ],
     },
   ]);
