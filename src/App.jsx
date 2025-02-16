@@ -17,13 +17,13 @@ function App() {
       path: "/",
       element: <MainLayout />,
       children: [
-        { index: true, element: <Home /> }, // "/"
-        { path: "interesting", element: <Interesting /> }, // "/interesting"
-        { path: "article", element: <Article /> }, // "/article"
-        { path: "contact", element: <Contact /> }, // "/contact"
+        { index: true, element: <Home /> },
+        { path: "interesting", element: <Interesting /> },
+        { path: "article", element: <Article /> },
+        { path: "contact", element: <Contact /> },
       ],
     },
-    { path: "*", element: <NotFound /> }, // 404 sahifasi
+    { path: "*", element: <NotFound /> },
   ]);
 
   return <RouterProvider router={routes} />;
