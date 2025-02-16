@@ -1,3 +1,4 @@
+// css
 import "./css/card.css";
 
 function Card({ cardImage, title, describtion, captionImage, caption }) {

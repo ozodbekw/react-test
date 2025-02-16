@@ -1,0 +1,18 @@
+.notFound__title {
+  margin-bottom: 25px;
+}
+
+.notFound__btn {
+  border: grey 1px solid;
+  border-radius: 6px;
+  background-color: #fefefe;
+  padding: 10px;
+}
+
+.notFound {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}

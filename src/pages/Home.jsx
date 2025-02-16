@@ -1,5 +1,10 @@
+// react imports
 import { useState } from "react";
+
+// css
 import "./css/home.css";
+
+// components
 import Card from "../components/Card";
 import SecondaryCard from "../components/SecondaryCard";
 
@@ -272,7 +277,11 @@ function Home() {
           </div>
           <div className="mire__wrapper-right">
             <SecondaryCard data={secondaryData} />
-            <img className="mire__wrapper-right__img" src="./home-img/ads.png" alt="" />
+            <img
+              className="mire__wrapper-right__img"
+              src="./home-img/ads.png"
+              alt=""
+            />
           </div>
         </div>
       </section>

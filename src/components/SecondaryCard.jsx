@@ -1,3 +1,4 @@
+// css
 import "./css/secondaryCard.css";
 
 function SecondaryCard({ data }) {

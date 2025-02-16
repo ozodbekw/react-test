@@ -1,4 +1,7 @@
+// router-dom
 import { Link } from "react-router-dom";
+
+// css
 import "./css/Header.css";
 
 function Header() {
@@ -41,28 +44,28 @@ function Header() {
             <Link to="/interesting">Интересное</Link>
           </li>
           <li className="header__bottom-list-item">
-            <Link to="/economy">Экономика</Link>
+            <Link to="/Экономика">Экономика</Link>
           </li>
           <li className="header__bottom-list-item">
-            <Link to="/politic">Политика</Link>
+            <Link to="/Политика">Политика</Link>
           </li>
           <li className="header__bottom-list-item">
-            <Link to="/society">Общество</Link>
+            <Link to="/Общество">Общество</Link>
           </li>
           <li className="header__bottom-list-item">
-            <Link to="/tech">Технологии</Link>
+            <Link to="/Технологии">Технологии</Link>
           </li>
           <li className="header__bottom-list-item">
-            <Link to="/sport">Спорт</Link>
+            <Link to="/Спорт">Спорт</Link>
           </li>
           <li className="header__bottom-list-item">
-            <Link to="/culture">Культура</Link>
+            <Link to="/Культура">Культура</Link>
           </li>
           <li className="header__bottom-list-item">
-            <Link to="/incidents">Происшествия</Link>
+            <Link to="/Происшествия">Происшествия</Link>
           </li>
           <li className="header__bottom-list-item">
-            <Link to="/science">Наука</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </div>
