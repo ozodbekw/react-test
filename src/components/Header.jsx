@@ -38,7 +38,7 @@ function Header() {
       <div className="header__bottom container">
         <ul className="header__bottom-list">
           <li className="header__bottom-list-item">
-            <Link to="/home">Главное</Link>
+            <Link to="/">Главное</Link>
           </li>
           <li className="header__bottom-list-item">
             <Link to="/interesting">Интересное</Link>
