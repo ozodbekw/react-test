@@ -1,5 +1,5 @@
 // css
-import "./css/card.css";
+/*import "./css/card.css";
 
 function Card({ cardImage, title, describtion, captionImage, caption }) {
   return (
@@ -21,4 +21,4 @@ function Card({ cardImage, title, describtion, captionImage, caption }) {
   );
 }
 
-export default Card;
+export default Card;*/

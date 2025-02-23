@@ -3,21 +3,32 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  height: 100%;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.form-input {
   display: flex;
+  gap: 50px;
   flex-direction: column;
-}
-
-body,
-html {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex-grow: 1;
+  label {
+    display: flex;
+    justify-content: space-between;
+  }
+  input {
+    margin-left: 10px;
+  }
 }
