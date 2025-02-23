@@ -12,6 +12,7 @@ function App() {
   //   "https://json-api.uz/api/project/test-loyiha/products"
   // );"name": "Redmi Note 11",
 
+  const [method, setMethod] = useState("GET");
   const [productDes, setProductDes] = useState(null);
   const [productBrand, setProductBrand] = useState(null);
   const [productPrice, setProductPrice] = useState(null);
@@ -24,7 +25,7 @@ function App() {
     brand: productBrand,
   };
 
-  const { data, isPending, error } = useFetch(url, "POST", newProduct);
+  const { data, isPending, error } = useFetch(url, method, newProduct);
 
   return (
     <div>
@@ -62,6 +63,15 @@ function App() {
           />
         </label>
         <button onClick={(e) => e.preventDefault()}>Submit</button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setMethod((prev) => (prev == "POST"));
+            console.log(method);
+          }}
+        >
+          click To Post
+        </button>
       </form>
     </div>
   );
