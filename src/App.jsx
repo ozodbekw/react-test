@@ -10,7 +10,7 @@ function App() {
   );
   // const [url, setUrl] = useState(
   //   "https://json-api.uz/api/project/test-loyiha/products"
-  // );"name": "Redmi Note 11",
+  // );
 
   const [method, setMethod] = useState("GET");
   const [productDes, setProductDes] = useState(null);
@@ -28,52 +28,54 @@ function App() {
   const { data, isPending, error } = useFetch(url, method, newProduct);
 
   return (
-    <div>
-      <form className="form-input">
-        <label>
-          Name
-          <input
-            onChange={(e) => setProductName((prev) => (prev = e.target.value))}
-            type="text"
-            placeholder="Name"
-          />
-        </label>
-        <label>
-          Describtion
-          <input
-            onChange={(e) => setProductDes((prev) => (prev = e.target.value))}
-            type="text"
-            placeholder="Text"
-          />
-        </label>
-        <label>
-          Price
-          <input
-            onChange={(e) => setProductPrice((prev) => (prev = e.target.value))}
-            type="number"
-            placeholder="Price"
-          />
-        </label>
-        <label>
-          Brand
-          <input
-            onChange={(e) => setProductBrand((prev) => (prev = e.target.value))}
-            type="text"
-            placeholder="Brand"
-          />
-        </label>
-        <button onClick={(e) => e.preventDefault()}>Submit</button>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            setMethod((prev) => (prev == "POST"));
-            console.log(method);
-          }}
-        >
-          click To Post
-        </button>
-      </form>
-    </div>
+    <>
+      <div>
+        <form className="form-input">
+          <label>
+            Name
+            <input
+              onChange={(e) => setProductName(e.target.value)}
+              type="text"
+              placeholder="Name"
+            />
+          </label>
+          <label>
+            Describtion
+            <input
+              onChange={(e) => setProductDes(e.target.value)}
+              type="text"
+              placeholder="Text"
+            />
+          </label>
+          <label>
+            Price
+            <input
+              onChange={(e) => setProductPrice(e.target.value)}
+              type="number"
+              placeholder="Price"
+            />
+          </label>
+          <label>
+            Brand
+            <input
+              onChange={(e) => setProductBrand(e.target.value)}
+              type="text"
+              placeholder="Brand"
+            />
+          </label>
+          <button onClick={(e) => e.preventDefault()}>Submit</button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setMethod((prev) => (prev === "GET" ? "POST" : "GET"));
+              console.log(method);
+            }}
+          >
+            click To Post
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 
