@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFetch } from "./hooks/useFetch";
-
 import "./App.css";
 
 function App() {
@@ -11,21 +10,29 @@ function App() {
   // const [url, setUrl] = useState(
   //   "https://json-api.uz/api/project/test-loyiha/products"
   // );
-
   const [method, setMethod] = useState("GET");
-  const [productDes, setProductDes] = useState(null);
-  const [productBrand, setProductBrand] = useState(null);
-  const [productPrice, setProductPrice] = useState(null);
-  const [productName, setProductName] = useState(null);
-
-  const newProduct = {
-    title: productName,
-    description: productDes,
-    price: productPrice,
-    brand: productBrand,
-  };
+  const [productDes, setProductDes] = useState("");
+  const [productBrand, setProductBrand] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productName, setProductName] = useState("");
+  const [newProduct, setNewProduct] = useState(null);
 
   const { data, isPending, error } = useFetch(url, method, newProduct);
+
+  useEffect(() => {
+    console.log("Current method:", method);
+  }, [method]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setNewProduct({
+      title: productName,
+      description: productDes,
+      price: productPrice,
+      brand: productBrand,
+    });
+    setMethod("POST");
+  };
 
   return (
     <>
@@ -34,6 +41,7 @@ function App() {
           <label>
             Name
             <input
+              value={productName}
               onChange={(e) => setProductName(e.target.value)}
               type="text"
               placeholder="Name"
@@ -42,6 +50,7 @@ function App() {
           <label>
             Describtion
             <input
+              value={productDes}
               onChange={(e) => setProductDes(e.target.value)}
               type="text"
               placeholder="Text"
@@ -50,6 +59,7 @@ function App() {
           <label>
             Price
             <input
+              value={productPrice}
               onChange={(e) => setProductPrice(e.target.value)}
               type="number"
               placeholder="Price"
@@ -58,20 +68,20 @@ function App() {
           <label>
             Brand
             <input
+              value={productBrand}
               onChange={(e) => setProductBrand(e.target.value)}
               type="text"
               placeholder="Brand"
             />
           </label>
-          <button onClick={(e) => e.preventDefault()}>Submit</button>
+          <button onClick={handleSubmit}>Submit</button>
           <button
             onClick={(e) => {
               e.preventDefault();
               setMethod((prev) => (prev === "GET" ? "POST" : "GET"));
-              console.log(method);
             }}
           >
-            click To Post
+            Click to Toggle Method
           </button>
         </form>
       </div>

@@ -40,4 +40,6 @@ export function useFetch(url, method = "GET", post = null) {
       fetchData();
     }
   }, [url, method, fetchHeaders]);
+
+  return { data, error, isPending };
 }
