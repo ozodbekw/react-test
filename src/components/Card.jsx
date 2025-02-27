@@ -5,7 +5,6 @@ function Card({ product }) {
   const { availabilityStatus, description, price, discountPercentage, images } =
     product;
 
-  console.log(product);
   return (
     <div className="card bg-base-300 w-full shadow-lg relative">
       <figure className="w-full">

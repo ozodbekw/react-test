@@ -7,7 +7,18 @@ export function useFetch(url) {
 
   useEffect(() => {
     const getData = async () => {
+      setIsPending(true);
       const req = await fetch(url);
+      try {
+        if (!req.ok) {
+          throw new Error("Something went wrong!");
+        }
+      } catch (err) {
+        setError(err);
+        console.log(err);
+      } finally {
+        setIsPending(false);
+      }
       const data = await req.json();
       setData(data);
     };
