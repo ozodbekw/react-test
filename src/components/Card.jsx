@@ -1,24 +1,30 @@
-// css
-/*import "./css/card.css";
+import { FcLike } from "react-icons/fc";
+import { IoBagAddOutline } from "react-icons/io5";
 
-function Card({ cardImage, title, describtion, captionImage, caption }) {
+function Card({ product }) {
+  const { availabilityStatus, description, price, discountPercentage, images } =
+    product;
+
+  console.log(product);
   return (
-    <div className="mire__wrapper-left__card">
-      <img src={cardImage} className="mire__wrapper-left__card-img" />
-      <div className="mire__wrapper-left__card-text">
-        <h3 className="mire__wrapper-left__card-title">{title}</h3>
-        <p className="mire__wrapper-left__card-describtion">{describtion}</p>
-        <div className="mire__wrapper-left__card-caption">
-          <img
-            className="mire__wrapper-left__card-caption__img"
-            src={captionImage}
-            alt={"logo" && captionImage}
-          />
-          <p className="mire__wrapper-left__card-caption__title">{caption}</p>
+    <div className="card bg-base-300 w-full shadow-lg relative">
+      <figure className="w-full">
+        <img className="w-[220px] h-[250px]" src={images[0]} alt="image" />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{availabilityStatus}</h2>
+        <p className="w-[80%]">{description}</p>
+        <h6>{price - (price % discountPercentage)}$</h6>
+        <div className="card-actions justify-end">
+          <button className="btn bg-transparent">{<IoBagAddOutline />}</button>
         </div>
       </div>
+
+      <button className="btn btn-circle bg-transparent absolute right-2 top-2">
+        <FcLike className="text-2xl" />
+      </button>
     </div>
   );
 }
 
-export default Card;*/
+export default Card;
