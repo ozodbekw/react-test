@@ -2,8 +2,10 @@ import { Link, Links } from "react-router-dom";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { FaShoppingCart, FaSun, FaMoon } from "react-icons/fa";
 import { LuGrape } from "react-icons/lu";
+import { useDarkMode } from "../hooks/useDarkMode";
 
 function Header() {
+  const [isDark, setIsDark] = useDarkMode();
   return (
     <header className="navbar bg-base-100 shadow-sm main-container grow-0">
       <div className="navbar-start">
@@ -54,13 +56,14 @@ function Header() {
             type="checkbox"
             className="theme-controller"
             value="synthwave"
+            onClick={() => setIsDark(!isDark)}
           />
 
           {/* sun icon */}
-          <FaSun className="swap-off h-10 w-10 fill-current" />
+          <FaSun className="swap-on h-10 w-10 fill-current" />
 
           {/* moon icon */}
-          <FaMoon className="swap-on h-10 w-10 fill-current" />
+          <FaMoon className="swap-off h-10 w-10 fill-current" />
         </label>
       </div>
     </header>
