@@ -1,22 +1,19 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainLayout from "./layouts/MainLayout";
-import Home from "./pages/Home";
-import Basket from "./components/Basket";
-import Card from "./components/Card";
+import "./App.css";
+import DessertList from "./components/DessertList";
+import YourCard from "./components/YourCard";
 
 function App() {
-  const routes = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout />,
-      children: [
-        { index: true, element: <Home /> },
-        { path: "card", element: <Card /> },
-        { path: "basket", element: <Basket /> },
-      ],
-    },
-  ]);
-  return <RouterProvider router={routes} />;
+  return (
+    <div className="main-container">
+      <div className="app-wrapper">
+        <h1 className="page_title">Desserts</h1>
+        <DessertList />
+      </div>
+      <div>
+        <YourCard />
+      </div>
+    </div>
+  );
 }
 
 export default App;
