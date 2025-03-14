@@ -5,6 +5,10 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .yourCart_title {
@@ -42,7 +46,7 @@
 .cartStatus {
   background-color: #fcf8f6;
   border-radius: 8px;
-  padding: 16px 51px;
+  padding: 16px 40px;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -109,4 +113,16 @@
 .cartItem_button {
   border-radius: 100%;
   background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .yourCart {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 250px) {
+  .yourCart {
+    max-width: 80vw;
+  }
 }

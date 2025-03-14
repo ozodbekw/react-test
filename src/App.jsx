@@ -1,5 +1,6 @@
 import "./App.css";
 import DessertList from "./components/DessertList";
+import OrderConfirmed from "./components/OrderConfirmed";
 import YourCard from "./components/YourCard";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <div>
         <YourCard />
       </div>
+      <OrderConfirmed />
     </div>
   );
 }

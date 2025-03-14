@@ -34,7 +34,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  z-index: 5;
+  z-index: 2;
   position: relative;
   top: -22px;
   margin-right: auto;
