@@ -2,8 +2,10 @@ import "./App.css";
 import DessertList from "./components/DessertList";
 import OrderConfirmed from "./components/OrderConfirmed";
 import YourCard from "./components/YourCard";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { orderList } = useSelector((store) => store.cart);
   return (
     <div className="main-container">
       <div className="app-wrapper">
@@ -13,7 +15,6 @@ function App() {
       <div>
         <YourCard />
       </div>
-      <OrderConfirmed />
     </div>
   );
 }

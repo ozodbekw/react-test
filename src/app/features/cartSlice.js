@@ -4,6 +4,7 @@ const initialState = {
   cardProduct: [],
   totalAmount: 0,
   totalPrice: 0,
+  orderList: false,
 };
 
 const cartSlice = createSlice({
@@ -19,6 +20,12 @@ const cartSlice = createSlice({
     resetCart: (state, { payload }) => {
       state.cardProduct = null;
     },
+    showOrderList: (state, { payload }) => {
+      state.orderList === true;
+    },
+    closeOrderList: (state, { payload }) => {
+      state.orderList === false;
+    },
   },
 });
 
@@ -28,5 +35,7 @@ export const {
   increaseQuality,
   removeFromCart,
   resetCart,
+  showOrderList,
+  closeOrderList,
 } = cartSlice.actions;
 export default cartSlice.reducer;
