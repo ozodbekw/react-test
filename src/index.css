@@ -22,6 +22,60 @@
   src: url("./fonts/red-hat-text-v18-latin-700.woff2") format("woff2");
 }
 
+:root {
+  /* Colors */
+  --color-red: #c7380f;
+  --color-rose-900: #260f08;
+  --color-rose-500: #87635a;
+  --color-rose-400: #ad8a85;
+  --color-rose-300: #caafa7;
+  --color-rose-100: #f5eeec;
+  --color-rose-50: #fcf8f6;
+  --color-green: #1ea575;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-primary: "Red Hat Text", sans-serif;
+  --font-size-xl: 56px;
+  --font-size-lg: 24px;
+  --font-size-md: 16px;
+  --font-size-sm: 14px;
+
+  --line-height-xl: 120%;
+  --line-height-lg: 125%;
+  --line-height-md: 150%;
+
+  /* Spacing */
+  --spacing-1100: 88px;
+  --spacing-500: 40px;
+  --spacing-400: 32px;
+  --spacing-300: 24px;
+  --spacing-200: 16px;
+  --spacing-150: 12px;
+  --spacing-100: 8px;
+  --spacing-50: 4px;
+}
+
+/* Example usage */
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+  color: var(--color-red);
+}
+
+p {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  color: var(--color-rose-900);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +85,12 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+}
+
+button {
+  background-color: transparent;
+  font-family: inherit;
+  border: 0;
 }
 
 body {
@@ -44,3 +104,4 @@ body {
   color: #260f08;
   font-family: "Red Hat Text", sans-serif;
 }
+

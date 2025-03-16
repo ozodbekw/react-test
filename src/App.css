@@ -6,7 +6,8 @@
   gap: 32px;
   margin-top: 88px;
   margin-bottom: 88px;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .app-wrapper {

@@ -5,46 +5,54 @@ import { showOrderList } from "../app/features/cartSlice";
 import { useState } from "react";
 import OrderConfirmed from "./OrderConfirmed";
 
-const items = [
-  {
-    name: "Classic Tiramisu",
-    quantity: "1x",
-    price: 5.5,
-    secondaryPrice: 5.5,
-    id: 1,
-  },
-  {
-    name: "Vanilla Bean Crème Brûlée",
-    quantity: "4x",
-    price: 28.0,
-    secondaryPrice: 7.0,
-    id: 2,
-  },
-  {
-    name: "Vanilla Panna Cotta",
-    quantity: "2x",
-    price: 13.0,
-    secondaryPrice: 6.5,
-    id: 3,
-  },
-];
+// const items = [
+//   {
+//     name: "Classic Tiramisu",
+//     quantity: "1x",
+//     price: 5.5,
+//     secondaryPrice: 5.5,
+//     id: 1,
+//   },
+//   {
+//     name: "Vanilla Bean Crème Brûlée",
+//     quantity: "4x",
+//     price: 28.0,
+//     secondaryPrice: 7.0,
+//     id: 2,
+//   },
+//   {
+//     name: "Vanilla Panna Cotta",
+//     quantity: "2x",
+//     price: 13.0,
+//     secondaryPrice: 6.5,
+//     id: 3,
+//   },
+// ];
 
 function YourCard({ callback }) {
   const dispatch = useDispatch();
   const [stater, setStater] = useState(false);
 
+  const { selectedDesserts, totalPrice, totalAmount } = useSelector(
+    (store) => store.cart
+  );
+
   return (
     <>
       <div className="yourCart">
-        <h2 className="yourCart_title">Your Cart (7)</h2>
+        <h2 className="yourCart_title">Your Cart ({totalAmount})</h2>
         <div className="yourCart_items">
-          {items.map((product) => {
-            return <YourCardItem key={product.id} product={product} />;
-          })}
+          {selectedDesserts.lenght == 0 ? (
+            <p>No items</p>
+          ) : (
+            selectedDesserts.map((product) => {
+              return <YourCardItem key={product.id} product={product} />;
+            })
+          )}
         </div>
         <div className="cartTotal">
           <span className="cartTotal_caption">Order Total</span>
-          <h6 className="cartTotal_price">$46.50</h6>
+          <h6 className="cartTotal_price">${totalPrice}</h6>
         </div>
         <div className="cartStatus">
           <svg
@@ -67,9 +75,7 @@ function YourCard({ callback }) {
             This is a <strong> carbon-neutral</strong> delivery
           </span>
         </div>
-        <button onClick={() => setStater((prev) => !prev)} className="cartBtn">
-          Confirm Order
-        </button>
+        <button className="cartBtn">Confirm Order</button>
       </div>
       {stater && <OrderConfirmed />}
     </>

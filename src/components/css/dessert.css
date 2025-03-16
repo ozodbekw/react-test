@@ -31,18 +31,13 @@
 }
 
 .cart-button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   z-index: 2;
   position: relative;
   top: -22px;
   margin-right: auto;
   margin-left: auto;
-  padding: 12.5px 28px;
-  border-radius: 999px;
-  border: 1px #ad8a85 solid;
-  background-color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
 .cart-text {

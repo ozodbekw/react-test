@@ -1,20 +1,19 @@
 import "./App.css";
-import DessertList from "./components/DessertList";
-import OrderConfirmed from "./components/OrderConfirmed";
-import YourCard from "./components/YourCard";
+import { DessertList, YourCard } from "./components";
 import { useSelector } from "react-redux";
 
 function App() {
-  const { orderList } = useSelector((store) => store.cart);
+  const { desserts, selectedDesserts, totalAmount, totalPrice } = useSelector(
+    (store) => store.cart
+  );
+
   return (
     <div className="main-container">
       <div className="app-wrapper">
         <h1 className="page_title">Desserts</h1>
-        <DessertList />
+        <DessertList data={desserts} />
       </div>
-      <div>
-        <YourCard />
-      </div>
+      <YourCard />
     </div>
   );
 }

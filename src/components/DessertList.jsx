@@ -1,7 +1,6 @@
-import data from "../data";
 import Dessert from "./Dessert";
 
-function DessertList() {
+function DessertList({ data }) {
   if (!Array.isArray(data) || data.length === 0) {
     return <p>No desserts available.</p>;
   }

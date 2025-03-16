@@ -1,30 +1,43 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import desserts from "../../data";
 const initialState = {
-  cardProduct: [],
-  totalAmount: 0,
+  desserts,
+  selectedDesserts: [],
   totalPrice: 0,
-  orderList: false,
+  totalAmount: 0,
 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, { payload }) => {},
-    increaseQuality: (state, { payload }) => {},
-    decreaseQuality: (state, { payload }) => {},
+    addToCart: (state, { payload }) => {
+      cartSlice.caseReducers.calculateTotal(state);
+      state.selectedDesserts = [...state.selectedDesserts, payload];
+    },
+    increaseQuality: (state, { payload }) => {
+      cartSlice.caseReducers.calculateTotal(state);
+    },
+    decreaseQuality: (state, { payload }) => {
+      cartSlice.caseReducers.calculateTotal(state);
+    },
     removeFromCart: (state, { payload }) => {
-      state.cardProduct.filter((p) => p != payload);
+      cartSlice.caseReducers.calculateTotal(state);
+      state.desserts.filter((p) => p != payload);
     },
     resetCart: (state, { payload }) => {
-      state.cardProduct = null;
+      state.desserts = null;
     },
-    showOrderList: (state, { payload }) => {
-      state.orderList === true;
-    },
-    closeOrderList: (state, { payload }) => {
-      state.orderList === false;
+    calculateTotal: (state) => {
+      let allPrice = 1;
+      let allAmount = 1;
+
+      state.selectedDesserts.forEach((d) => {
+        allPrice += d.amount * d.price;
+        allAmount += d.amount;
+      });
+      state.totalAmount = allAmount;
+      state.totalPrice = allPrice;
     },
   },
 });
@@ -38,4 +51,5 @@ export const {
   showOrderList,
   closeOrderList,
 } = cartSlice.actions;
+
 export default cartSlice.reducer;
