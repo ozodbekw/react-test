@@ -5,6 +5,7 @@ const initialState = {
   desserts: [...desserts],
   totalPrice: 0,
   totalAmount: 0,
+  modal: false,
 };
 
 const cartSlice = createSlice({
@@ -45,6 +46,9 @@ const cartSlice = createSlice({
       state.totalAmount = allAmount;
       state.totalPrice = allPrice;
     },
+    toggleModal: (state, { payload }) => {
+      state.modal = !state.modal;
+    },
   },
 });
 
@@ -54,8 +58,7 @@ export const {
   increaseQuality,
   removeFromCart,
   resetCart,
-  showOrderList,
-  closeOrderList,
+  toggleModal,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

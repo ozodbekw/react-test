@@ -1,35 +1,11 @@
+import { useDispatch, useSelector } from "react-redux";
 import "./css/orderCart.css";
 import OrderItem from "./OrderItem";
-
-const orders = [
-  {
-    id: 1,
-    name: "Classic Tiramisu",
-    price: "$5.50",
-    quantity: "1x",
-    image: "",
-    secondPrice: "@ $5.50",
-  },
-  {
-    id: 2,
-    name: "Vanilla Bean Crème Brûlée",
-    price: "$28.00",
-    quantity: "4x",
-    image: "",
-    secondPrice: "@ $7.00",
-  },
-
-  {
-    id: 3,
-    name: "Vanilla Panna Cotta",
-    price: "$13.00",
-    quantity: "2x",
-    image: "",
-    secondPrice: "@ $6.50",
-  },
-];
+import { toggleModal } from "../app/features/cartSlice";
 
 function OrderConfirmed() {
+  const { desserts, totalPrice } = useSelector((store) => store.cart);
+  const dispatch = useDispatch();
   return (
     <div className="orderOverlay">
       <div className="orderCart">
@@ -54,15 +30,17 @@ function OrderConfirmed() {
           <p className="order_caption">We hope you enjoy your food!</p>
         </div>
         <div className="orderList">
-          {orders.map((order) => {
-            return <OrderItem key={order.id} order={order} />;
+          {desserts.map((d) => {
+            return d.amount !== 0 && <OrderItem key={d.id} order={d} />;
           })}
           <div className="order__total">
             <span className="order__total_caption">Order Total</span>
-            <h4 className="order__total_price">$46.50</h4>
+            <h4 className="order__total_price">${totalPrice}</h4>
           </div>
         </div>
-        <button className="orderBtn">Start New Order</button>
+        <button className="orderBtn" onClick={() => dispatch(toggleModal())}>
+          Start New Order
+        </button>
       </div>
     </div>
   );

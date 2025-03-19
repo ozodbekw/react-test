@@ -58,11 +58,6 @@
 }
 
 /* Example usage */
-body {
-  font-family: var(--font-primary);
-  background-color: var(--color-white);
-  color: var(--color-black);
-}
 
 h1 {
   font-size: var(--font-size-xl);
@@ -102,6 +97,6 @@ body {
   min-height: 100vh;
   background-color: #fcf8f6;
   color: #260f08;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: var(--font-primary);
 }
 

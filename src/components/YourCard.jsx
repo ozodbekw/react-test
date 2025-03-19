@@ -1,42 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./css/yourCart.css";
 import YourCardItem from "./YourCardItem";
-import { showOrderList } from "../app/features/cartSlice";
 import { useState } from "react";
 import OrderConfirmed from "./OrderConfirmed";
-
-// const items = [
-//   {
-//     name: "Classic Tiramisu",
-//     quantity: "1x",
-//     price: 5.5,
-//     secondaryPrice: 5.5,
-//     id: 1,
-//   },
-//   {
-//     name: "Vanilla Bean Crème Brûlée",
-//     quantity: "4x",
-//     price: 28.0,
-//     secondaryPrice: 7.0,
-//     id: 2,
-//   },
-//   {
-//     name: "Vanilla Panna Cotta",
-//     quantity: "2x",
-//     price: 13.0,
-//     secondaryPrice: 6.5,
-//     id: 3,
-//   },
-// ];
+import { toggleModal } from "../app/features/cartSlice";
 
 function YourCard() {
-  const dispatch = useDispatch();
-
+  const { modal } = useSelector((store) => store.cart);
   const { desserts, totalPrice, totalAmount } = useSelector(
     (store) => store.cart
   );
 
-  console.log(desserts, totalAmount)
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -86,9 +61,12 @@ function YourCard() {
                 This is a <strong> carbon-neutral</strong> delivery
               </span>
             </div>
-            <button className="cartBtn">Confirm Order</button>
+            <button onClick={() => dispatch(toggleModal())} className="cartBtn">
+              Confirm Order
+            </button>
           </div>
         )}
+        {modal && <OrderConfirmed />}
       </div>
     </>
   );

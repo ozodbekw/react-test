@@ -76,11 +76,14 @@
 .order__texts {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .order_img {
   width: 48px;
   height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .order__right {
@@ -111,4 +114,11 @@
   color: #260f08;
   font-weight: 600;
   font-size: 16px;
+}
+
+.closeModalBtn {
+  position: relative;
+  padding: 5px;
+  right: 10px;
+  top: 10px;
 }

@@ -6,7 +6,7 @@ function OrderItem({ order }) {
     <div className="order_wrapper">
       <div className="order__texts">
         <div className="order__right">
-          <img className="order_img" src={image} alt="image" />
+          <img className="order_img" src={image.mobile} alt="image" />
           <div>
             <h4 className="order__item_title">{name}</h4>
             <p>
