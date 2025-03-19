@@ -3,7 +3,7 @@ import { DessertList, YourCard } from "./components";
 import { useSelector } from "react-redux";
 
 function App() {
-  const { desserts, selectedDesserts, totalAmount, totalPrice } = useSelector(
+  const { desserts, totalAmount, totalPrice } = useSelector(
     (store) => store.cart
   );
 

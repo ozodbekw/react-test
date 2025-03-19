@@ -66,6 +66,7 @@
   display: flex;
   gap: 8px;
   align-items: center;
+  margin-top: 24px;
 }
 
 .cartStatus_text {
@@ -81,6 +82,14 @@
   border-radius: 999px;
   font-weight: 600;
   font-size: 16px;
+  margin-top: 24px;
+}
+
+.yourCart__caption {
+  font-weight: 600;
+  color: var(--color-rose-500);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
 }
 
 /* YourcartItem styles */
@@ -95,6 +104,7 @@
   justify-content: space-between;
   align-items: center;
   width: 336px;
+  text-align: left;
   p {
     margin: 0;
   }

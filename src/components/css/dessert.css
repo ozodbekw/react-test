@@ -28,6 +28,7 @@
   width: 250px;
   object-fit: cover;
   border-radius: 8px;
+  border: transparent 2px solid;
 }
 
 .cart-button {

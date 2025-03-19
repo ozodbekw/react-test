@@ -29,32 +29,38 @@ import OrderConfirmed from "./OrderConfirmed";
 //   },
 // ];
 
-function YourCard({ callback }) {
+function YourCard() {
   const dispatch = useDispatch();
-  const [stater, setStater] = useState(false);
 
-  const { selectedDesserts, totalPrice, totalAmount } = useSelector(
+  const { desserts, totalPrice, totalAmount } = useSelector(
     (store) => store.cart
   );
 
-  console.log(typeof selectedDesserts);
+  console.log(desserts, totalAmount)
 
   return (
     <>
       <div className="yourCart">
         <h2 className="yourCart_title">Your Cart ({totalAmount})</h2>
-        {Object.keys(selectedDesserts).length == 0 ? (
+        {totalAmount < 1 && (
           <div>
-            <img className="yourCart__empty_img" src="./images/illustration-empty-cart.svg" alt="" />
-            <p className="yourCart__empty_text">Your added items will appear here</p>
+            <img src="./images/illustration-empty-cart.svg" />
+            <p className="yourCart__caption">
+              Your added items will be appear here
+            </p>
           </div>
-        ) : (
-          <>
-            <div className="yourCart_items">
-              {selectedDesserts.map((product) => {
-                return <YourCardItem key={product.id} product={product} />;
-              })}
-            </div>
+        )}
+        <div className="yourCart_items">
+          {desserts.map((product) => {
+            return (
+              product.amount != 0 && (
+                <YourCardItem key={product.id} product={product} />
+              )
+            );
+          })}
+        </div>
+        {totalAmount !== 0 && (
+          <div>
             <div className="cartTotal">
               <span className="cartTotal_caption">Order Total</span>
               <h6 className="cartTotal_price">${totalPrice}</h6>
@@ -81,7 +87,7 @@ function YourCard({ callback }) {
               </span>
             </div>
             <button className="cartBtn">Confirm Order</button>
-          </>
+          </div>
         )}
       </div>
     </>

@@ -7,21 +7,20 @@ import {
   decreaseQuality,
   addToCart,
 } from "../app/features/cartSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Dessert({ product }) {
   const dispatch = useDispatch();
   const [alreadyAdded, setAlreadyAdded] = useState(false);
 
+  useEffect(() => {
+    setAlreadyAdded(product.amount !== 0);
+  }, [product.amount]);
+
   const { image, name, price, category } = product;
 
   const addDessert = (product) => {
-    dispatch(
-      addToCart({
-        amount: 1,
-        ...product,
-      })
-    );
+    dispatch(addToCart(product.id));
   };
   return (
     <div className="cart">
@@ -33,7 +32,12 @@ function Dessert({ product }) {
         />
         <source srcSet={image.tablet} media="(min-width: 768px)" />
         <source srcSet={image.desktop} media="(min-width: 1024px)" />
-        <img src={image.thumbnail} alt={name} className="cart-image" />
+        <img
+          style={{ borderColor: alreadyAdded && "#c73b0f" }}
+          src={image.thumbnail}
+          alt={name}
+          className="cart-image"
+        />
       </picture>
       <div className="cart-button">
         {!alreadyAdded && (
@@ -50,7 +54,10 @@ function Dessert({ product }) {
         )}
         {alreadyAdded && (
           <div className="increment-decrement-btns ">
-            <button className="amount-change-btn">
+            <button
+              className="amount-change-btn"
+              onClick={() => dispatch(decreaseQuality(product.id))}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"
@@ -61,8 +68,11 @@ function Dessert({ product }) {
                 <path fill="#fff" d="M0 .375h10v1.25H0V.375Z" />
               </svg>
             </button>
-            <span>1</span>
-            <button className="amount-change-btn">
+            <span>{product.amount}</span>
+            <button
+              className="amount-change-btn"
+              onClick={() => dispatch(increaseQuality(product.id))}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"

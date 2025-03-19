@@ -1,20 +1,21 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../app/features/cartSlice";
 
-function YourCardItem({ product: { name, price, secondaryPrice, quantity } }) {
+function YourCardItem({ product: { name, price, amount, id } }) {
+  const dispatch = useDispatch();
   return (
     <div className="cartItem_wrapper">
       <div className="cartItem_div">
         <div>
           <h4 className="cartItem_title">{name}</h4>
           <p>
-            <span className="cartItem_quantity">{quantity}</span>
-            <span className="cartItem_price__secondary">
-              @ ${secondaryPrice}
-            </span>
-            <span className="cartItem_price">${price}</span>
+            <span className="cartItem_quantity">{amount}x</span>
+            <span className="cartItem_price__secondary">@ ${price}</span>
+            <span className="cartItem_price">${price * amount}</span>
           </p>
         </div>
         <svg
+          onClick={() => dispatch(removeFromCart(id))}
           className="cartItem_button"
           width="20"
           height="20"
