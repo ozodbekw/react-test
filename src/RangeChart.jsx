@@ -93,7 +93,7 @@ const ApexChart = () => {
   });
 
   return (
-    <div>
+    <section>
       <h2>Best Sellings in dates</h2>
       <div id="chart">
         <ReactApexChart
@@ -104,7 +104,7 @@ const ApexChart = () => {
         />
       </div>
       <div id="html-dist"></div>
-    </div>
+    </section>
   );
 };
 

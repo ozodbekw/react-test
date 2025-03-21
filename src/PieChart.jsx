@@ -27,7 +27,7 @@ const PieChart = () => {
   });
 
   return (
-    <div>
+    <section>
       <h2>Desserts Best category with sales</h2>
       <div id="chart">
         <ReactApexChart
@@ -38,7 +38,7 @@ const PieChart = () => {
         />
       </div>
       <div id="html-dist"></div>
-    </div>
+    </section>
   );
 };
 

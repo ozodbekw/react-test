@@ -10,4 +10,8 @@ body {
   flex-direction: column;
   gap: 30px;
   text-align: center;
+  section {
+    max-width: 80vw;
+    width: 100%;
+  }
 }
