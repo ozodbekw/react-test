@@ -4,9 +4,7 @@ import { auth } from "../firebase/firebaseConfig";
 import { login } from "../app/features/userSlice";
 import { useDispatch } from "react-redux";
 
-import { useFirestore } from "./useFireStore";
-
-const newObj = {};
+import { useFirestore } from "./useFirest";
 
 export function useRegister() {
   const { addUser } = useFirestore("users");
