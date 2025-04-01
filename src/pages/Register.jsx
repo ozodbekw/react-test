@@ -59,7 +59,10 @@ function Register() {
           </label>
           <div className="mt-5 flex flex-col gap-2 md:flex-row">
             {isPending && (
-              <button className="btn btn-primary grow md:btn-md btn-sm">
+              <button
+                className="btn btn-primary grow md:btn-md btn-sm"
+                disabled
+              >
                 Loading...
               </button>
             )}

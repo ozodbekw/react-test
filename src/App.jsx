@@ -6,9 +6,14 @@ import {
 import MainLayout from "./layouts/MainLayout";
 import { Home, Create, Register, Login, Settings } from "./pages";
 import ProtectedRoutes from "./components/ProtectedRoutes";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/firebaseConfig";
+import { login } from "./app/features/userSlice";
 
 function App() {
+  const dispatch = useDispatch();
   const { user } = useSelector((store) => store.user);
   const routes = createBrowserRouter([
     {
@@ -24,7 +29,7 @@ function App() {
           element: <Home />,
         },
         {
-          path: "create",
+          path: "/create",
           element: <Create />,
         },
         {
@@ -42,6 +47,13 @@ function App() {
       element: user ? <Navigate to="/" /> : <Register />,
     },
   ]);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      dispatch(login(user));
+    });
+  }, []);
+
   return <RouterProvider router={routes} />;
 }
 
