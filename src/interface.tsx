@@ -1,9 +1,9 @@
-type FormEntryValue = null | FormDataEntryValue;
+type FormEntryValue = string | File;
 
-export interface Todo {
-  id: string | FormEntryValue;
-  title: string | FormEntryValue;
-  describtion: string | FormEntryValue;
-  complated: boolean | FormEntryValue;
-  type: "easy" | "normal" | "hard" | FormEntryValue;
-}
+export type Todo = {
+  title: string;
+  id: string | number;
+  description: FormEntryValue;
+  type: FormEntryValue;
+  completed: boolean;
+};
