@@ -12,22 +12,32 @@ function FormElement({ setTodos }: FormElementProps) {
 
     const formData = new FormData(e.currentTarget);
 
-    const title = formData.get("title") as string;
-    const describtion = formData.get("describtion") as string;
-    const complated = formData.get("complated") === "on";
-    const type = formData.get("type") as "easy" | "normal" | "hard";
+    const titleEntry = formData.get("title");
+    const descriptionEntry = formData.get("description");
+    const completedEntry = formData.get("completed");
+    const typeEntry = formData.get("type");
 
-    const todo: Todo = {
-      id: uuidv4(),
-      title,
-      describtion,
-      complated,
-      type,
-    };
+    if (
+      typeof titleEntry === "string" &&
+      typeof descriptionEntry === "string" &&
+      typeof typeEntry === "string"
+    ) {
+      const completed = completedEntry === "on";
 
-    setTodos((prev) => [...prev, todo]);
+      const todo: Todo = {
+        id: uuidv4(),
+        title: titleEntry,
+        description: descriptionEntry,
+        completed,
+        type: typeEntry as "easy" | "normal" | "hard",
+      };
 
-    e.currentTarget.reset();
+      setTodos((prev) => [...prev, todo]);
+
+      e.currentTarget.reset();
+    } else {
+      console.error("Form data is invalid");
+    }
   };
 
   return (
@@ -50,25 +60,25 @@ function FormElement({ setTodos }: FormElementProps) {
           />
         </div>
         <div className="w-full">
-          <label className="text-3xl font-semibold " htmlFor="describtion">
+          <label className="text-3xl font-semibold " htmlFor="description">
             Description:
           </label>
           <br />
           <textarea
-            name="describtion"
-            id="describtion"
+            name="description"
+            id="description"
             className="input input-neutral w-full"
             required
           />
         </div>
         <div>
-          <label className="ml-10 mr-5" htmlFor="complated">
+          <label className="ml-10 mr-5" htmlFor="completed">
             Completed:
           </label>
           <input
-            name="complated"
+            name="completed"
             type="checkbox"
-            id="complated"
+            id="completed"
             defaultChecked
             className="checkbox"
           />
