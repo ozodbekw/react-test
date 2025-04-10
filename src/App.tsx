@@ -16,7 +16,7 @@ function App() {
       <div className="mt-4 w-full max-w-md space-y-4">
         {todos.map((todo) => (
           <div
-            key={todo.id}
+            key={todo.id?.toString()}
             className="p-4 rounded-xl shadow-md bg-base-100 border border-neutral"
           >
             <h2 className="text-xl font-bold">{todo.title}</h2>
