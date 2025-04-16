@@ -7,7 +7,7 @@ function Product() {
   return (
     <Box
       sx={{
-        height: "90vh",
+        height: "89vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
