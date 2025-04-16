@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Card from "../components/Card";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 type Product = {
   id: number;
@@ -16,14 +16,16 @@ type LoaderData = {
 };
 
 function ProductList() {
-  const products = useLoaderData() as LoaderData;
+  const { products } = useLoaderData() as LoaderData;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        {products.products.map((p) => (
+        {products.map((p) => (
           <Grid key={p.id}>
-            <Card product={p} />
+            <Link to={`/product/${p.id}`}>
+              <Card product={p} />
+            </Link>
           </Grid>
         ))}
       </Grid>
