@@ -4,8 +4,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
 
-
-
 type Product = {
   title: string;
   description: string;
