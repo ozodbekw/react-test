@@ -20,9 +20,15 @@ function ProductList() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid
+        container
+        spacing={2}
+        style={{ height: "100vh" }}
+        alignItems="center"
+        justifyContent="center"
+      >
         {products.map((p) => (
-          <Grid key={p.id}>
+          <Grid key={p.id} size={{ xs: 3 }}>
             <Link to={`/product/${p.id}`}>
               <Card product={p} />
             </Link>
