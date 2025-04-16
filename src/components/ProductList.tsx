@@ -28,7 +28,7 @@ function ProductList() {
         justifyContent="center"
       >
         {products.map((p) => (
-          <Grid key={p.id} size={{ xs: 3, md: 6, sm: 12 }}>
+          <Grid key={p.id} size={{ xs: 12, md: 3, sm: 6 }}>
             <Link to={`/product/${p.id}`}>
               <Card product={p} />
             </Link>
